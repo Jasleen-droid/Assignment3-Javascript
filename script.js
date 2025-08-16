@@ -19,3 +19,20 @@ document.getElementById("weatherForm").addEventListener("submit", function(event
                 const condition = data.weather[0].main; // Weather condition
                 const humidity = data.main.humidity;   // Humidity percentage
                 const wind = data.wind.speed;          // Wind speed (m/s)
+// 7️ Choose an emoji based on condition
+                let emoji = "🌤";
+                if (condition.toLowerCase().includes("rain")) emoji = "🌧";
+                else if (condition.toLowerCase().includes("cloud")) emoji = "☁️";
+                else if (condition.toLowerCase().includes("clear")) emoji = "☀️";
+                else if (condition.toLowerCase().includes("snow")) emoji = "❄️";
+
+// 8️ Display the weather information
+                document.getElementById("weatherResult").innerHTML = `
+                    <h2>${emoji} Weather in ${city}</h2>
+                    <p><strong>Temperature:</strong> ${temp} °C</p>
+                    <p><strong>Condition:</strong> ${condition}</p>
+                    <p><strong>Humidity:</strong> ${humidity}%</p>
+                    <p><strong>Wind Speed:</strong> ${wind} m/s</p>
+                `;
+
+            }
