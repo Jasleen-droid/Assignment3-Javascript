@@ -13,3 +13,9 @@ document.getElementById("weatherForm").addEventListener("submit", function(event
     fetch(url)
         .then(response => response.json())
         .then(data => {
+// 6️ If API returns success (code 200)
+            if (data.cod === 200) {
+                const temp = data.main.temp;           // Current temperature
+                const condition = data.weather[0].main; // Weather condition
+                const humidity = data.main.humidity;   // Humidity percentage
+                const wind = data.wind.speed;          // Wind speed (m/s)
