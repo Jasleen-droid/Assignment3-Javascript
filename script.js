@@ -9,3 +9,7 @@ document.getElementById("weatherForm").addEventListener("submit", function(event
     let city = document.getElementById("cityInput").value.trim();
     // 4️ API endpoint URL with dynamic city name and API key
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    // 5️ Fetch weather data from the API
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
