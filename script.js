@@ -36,3 +36,19 @@ document.getElementById("weatherForm").addEventListener("submit", function(event
                 `;
 
             }
+            else {
+                // 9️⃣ If city not found
+                document.getElementById("weatherResult").innerHTML = `
+                    <p>❌ City not found. Please try again.</p>
+                `;
+            }
+        })
+        // 10 Catch any errors (e.g., network issues)
+        .catch(error => {
+            console.error("Error fetching data:", error);
+            document.getElementById("weatherResult").innerHTML = `
+                <p>⚠️ There was an error fetching weather data.</p>
+            `;
+        });
+});
+
